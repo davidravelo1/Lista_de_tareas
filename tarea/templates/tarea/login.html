@@ -1,0 +1,7 @@
+<h1>Ingresar</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="ingresar">
+</form>
+<p>¿No tienes una cuenta?<a href=""> Registrate</a></p>

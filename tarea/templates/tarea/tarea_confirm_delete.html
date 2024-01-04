@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>¿Eliminar la siguiente tarea: "{{tarea}}"?</p>
+        <input type="sumbit" value="Eliminar">
+
+    </form>
+</body>
+</html>

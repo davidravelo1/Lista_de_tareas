@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <div>
+        {% if request.user.is_authenticated %}
+            <p> Bienvenido {{request.user}}</p>
+            <a href="{% url 'logout' %}">Salir</a>
+        {% else %}
+            <a href="{% url 'login' %}">Ingresar</a>
+        {% endif %}
+        <hr>
+        <h1>Lista de Tareas</h1>
+        <a href="{% url 'crear-tarea' %}">Nueva tarea</a>
+    </div>
+    <table>
+        <tr>
+            <th class="">Elementos</th>
+            <th> Detalles</th>
+            <th> Editar</th>
+        </tr>
+
+        {% for tarea in lista_tareas %} 
+
+        <tr>
+            <th>{{tarea.titulo}}</th>
+            <th><a href="{% url 'tarea' tarea.id %}">Ver</a></th>
+            <th><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></th>
+            <th><a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a></th>
+        </tr>
+
+        {% empty %}
+
+        <h3>No hay elementos en esta lista</h3>
+
+        {% endfor %}
+
+        
+    </table>
+</body>
+</html>
